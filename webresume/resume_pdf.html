@@ -1,0 +1,397 @@
+<!DOCTYPE html >
+<html lang="en">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>webresume Page1</title>
+<link rel="stylesheet" type="text/css" href="assets/IDRViewer.css">
+<script type="text/javascript">
+var extLoaded = false;
+var intLoaded = false;
+function idrLoad() {
+	idrLoaded = true;
+	var bounds;
+	var heights = new Array(200);
+	IDRViewer.makeNavBar(1,1,909,1286,0,heights,'.jpg',bounds, true);
+}
+</script>
+<script src="assets/IDRViewer.js" type="text/javascript"></script>
+</head>
+
+<!-- Background pattern courtesy of http://subtlepatterns.com/grey-washed-wall/ -->
+<body style="background:url('assets/bg.png') repeat scroll 0 0 transparent;">
+
+<div id="left">
+<div id="leftNav">
+	<div id="btnThumbnails" onclick="IDRViewer.toggleOutlines(false)" title="Thumbnails" class="navBtn inactive"></div>
+	<div id="btnOutlines" onclick="IDRViewer.toggleOutlines(true)" title="Bookmarks" class="navBtn inactive"></div>
+</div>
+<div id="leftContent">
+	<div id="thumbnailPanel"></div>
+	<div id="outlinePanel"></div>
+</div>
+</div>
+
+<div id="main">
+
+<div id="mainNav">
+	<div id="btnSideToggle" onclick="IDRViewer.toggleThumbnails();" class="navBtn"><div title="Sidebar"></div></div>
+	
+	<div id="btnPrev" title="Previous Page" onclick="IDRViewer.prev()" class="navBtn"></div>
+	<select id="goBtn" onchange="IDRViewer.goToPage(0)">
+
+	</select>
+	<span id="pgCount"></span>
+	<div id="btnNext" title="Next Page" onclick="IDRViewer.next()" class="navBtn"></div>
+	
+	<div id="btnSelect" title="Select" onclick="IDRViewer.setSelectMode(0)" class="navBtn"></div>
+	<div id="btnMove" title="Pan" onclick="IDRViewer.setSelectMode(1)" class="navBtn"></div>
+
+	<div id="btnZoomOut" title="Zoom Out" onclick="IDRViewer.zoomOut()" class="navBtn"></div>
+	<select id="zoomBtn" onchange="IDRViewer.zoomUpdate()">
+		<option value="0">100%</option>
+		<option value="1">Actual Size</option>
+		<option value="2">Fit Width</option>
+		<option value="3">Fit Height</option>
+		<option value="4">Fit Page</option>
+		<option value="5">Automatic</option>
+
+	</select>
+	<div id="btnZoomIn" title="Zoom In" onclick="IDRViewer.zoomIn()" class="navBtn"></div>
+	<div id="btnFullscreen" title="Fullscreen" onclick="IDRViewer.toggleFullScreen();" class="navBtn closed"></div>
+</div>
+
+<div id="mainContent">
+
+<div id="contentContainer">
+
+
+
+<div id="jpedal" style="position:relative; width: 909px; height: 1286px; overflow: hidden; margin: 0 auto; box-shadow: 0 2px 6px rgba(100, 100, 100, 0.5);">
+
+<!-- Begin shared CSS values -->
+<style type="text/css" >
+.t {
+	position: absolute;
+	-webkit-transform-origin: top left;
+	-moz-transform-origin: top left;
+	-o-transform-origin: top left;
+	-ms-transform-origin: top left;
+	-webkit-transform: scale(0.25);
+	-moz-transform: scale(0.25);
+	-o-transform: scale(0.25);
+	-ms-transform: scale(0.25);
+	z-index: 2;
+	position:absolute;
+	white-space:nowrap;
+	overflow:visible;
+}
+</style>
+<!-- End shared CSS values -->
+
+<!-- Begin shared JS -->
+<script type="text/javascript">
+
+// Ensure that we're not replacing any onload events
+function addLoadEvent(func) {
+	var oldonload = window.onload;
+	if (typeof window.onload != 'function') {
+		window.onload = func;
+	} else {
+		window.onload = function() {
+			if (oldonload) {
+				oldonload();
+			}
+			func();
+		}
+	}
+}
+addLoadEvent(function(){load1();});
+
+function adjustWordSpacing(widths) {
+    var i, allLinesDone = false;
+    var isDone = [];
+    var currentSpacing = [];
+    var elements = [];
+    
+    // Initialise arrays
+    for (i = 0; i < widths.length; i++) {
+        elements[i] = document.getElementById(widths[i][0]);
+        elements[i].style.wordSpacing = '0px';//Required if rerunning
+    }
+    for (i = 0; i < widths.length; i++) {
+        if (isIE) widths[i][1] = widths[i][1] * 4;
+        currentSpacing[i] = Math.floor((widths[i][1] - elements[i].offsetWidth) / elements[i].innerHTML.match(/\s.|&nbsp;./g).length);//min
+        if (isIE) currentSpacing[i] = Math.floor(currentSpacing[i] / 4);
+        isDone[i] = false;
+    }
+    
+    while (!allLinesDone) {
+        // Add each adjustment to the render queue without forcing a render
+        for (i = 0; i < widths.length; i++) {
+            if (!isDone[i]) {
+                elements[i].style.wordSpacing = currentSpacing[i] + 'px';
+            }            
+        }
+        
+        allLinesDone = true;
+        // If elements still need to be wider, add 1 to the word spacing
+        for (i = 0; i < widths.length; i++) {
+            if (!isDone[i] && currentSpacing[i] < 160) {
+                if (elements[i].offsetWidth >= widths[i][1]) {
+                    isDone[i] = true;
+                } else {
+                    currentSpacing[i]++;
+                    allLinesDone = false;
+                }
+            }
+        }
+    }
+    
+    for (i = 0; i < widths.length; i++) {
+        elements[i].style.wordSpacing = (currentSpacing[i] - 1) + 'px';
+    }
+}
+
+</script>
+<!-- End shared JS -->
+
+
+<!-- Begin inline CSS -->
+<style type="text/css" >
+
+#t1_1{left:380px;top:146px;letter-spacing:-24px;}
+#t2_1{left:316px;top:60px;letter-spacing:-21px;}
+#t3_1{left:441px;top:56px;}
+#t4_1{left:206px;top:279px;}
+#t5_1{left:334px;top:279px;}
+#t6_1{left:575px;top:279px;}
+#t7_1{left:74px;top:360px;letter-spacing:-1px;}
+#t8_1{left:87px;top:574px;}
+#t9_1{left:88px;top:849px;letter-spacing:-1px;}
+#ta_1{left:124px;top:1002px;}
+#tb_1{left:98px;top:1154px;}
+#tc_1{left:288px;top:360px;}
+#td_1{left:327px;top:379px;}
+#te_1{left:439px;top:360px;}
+#tf_1{left:439px;top:379px;}
+#tg_1{left:250px;top:422px;}
+#th_1{left:375px;top:440px;}
+#ti_1{left:439px;top:421px;}
+#tj_1{left:439px;top:440px;}
+#tk_1{left:235px;top:483px;}
+#tl_1{left:278px;top:502px;}
+#tm_1{left:439px;top:482px;}
+#tn_1{left:439px;top:501px;}
+#to_1{left:393px;top:574px;}
+#tp_1{left:312px;top:593px;}
+#tq_1{left:439px;top:574px;}
+#tr_1{left:439px;top:593px;}
+#ts_1{left:393px;top:635px;}
+#tt_1{left:372px;top:654px;}
+#tu_1{left:439px;top:635px;}
+#tv_1{left:439px;top:654px;}
+#tw_1{left:393px;top:696px;}
+#tx_1{left:306px;top:715px;}
+#ty_1{left:439px;top:696px;}
+#tz_1{left:439px;top:715px;}
+#t10_1{left:393px;top:758px;}
+#t11_1{left:309px;top:776px;}
+#t12_1{left:439px;top:757px;}
+#t13_1{left:439px;top:776px;}
+#t14_1{left:334px;top:849px;}
+#t15_1{left:439px;top:849px;}
+#t16_1{left:439px;top:868px;}
+#t17_1{left:341px;top:910px;}
+#t18_1{left:439px;top:910px;}
+#t19_1{left:439px;top:929px;}
+#t1a_1{left:353px;top:1002px;}
+#t1b_1{left:439px;top:1002px;}
+#t1c_1{left:439px;top:1021px;}
+#t1d_1{left:344px;top:1063px;}
+#t1e_1{left:439px;top:1063px;}
+#t1f_1{left:439px;top:1082px;letter-spacing:-3px;}
+#t1g_1{left:439px;top:1101px;}
+#t1h_1{left:439px;top:1154px;}
+#t1i_1{left:439px;top:1173px;}
+
+.s7_1{
+	FONT-SIZE: 62px;
+	FONT-FAMILY: ECRYPK-HelveticaNeue-Bold1;
+	color: rgb(227,0,123);
+}
+
+.s1_1{
+	FONT-SIZE: 490px;
+	FONT-FAMILY: ECRYPK-HelveticaNeue-Bold1;
+	color: rgb(68,63,62);
+}
+
+.s5_1{
+	FONT-SIZE: 62px;
+	FONT-FAMILY: ECRYPK-HelveticaNeue-Bold1;
+	color: rgb(0,168,236);
+}
+
+.s4_1{
+	FONT-SIZE: 62px;
+	FONT-FAMILY: ECRYPK-HelveticaNeue-Bold1;
+	color: rgb(176,171,167);
+}
+
+.s6_1{
+	FONT-SIZE: 62px;
+	FONT-FAMILY: YTPOJW-HelveticaNeue1;
+	color: rgb(68,63,62);
+}
+
+.s9_1{
+	FONT-SIZE: 62px;
+	FONT-FAMILY: ECRYPK-HelveticaNeue-Bold1;
+	color: rgb(248,244,0);
+}
+
+.s2_1{
+	FONT-SIZE: 460px;
+	FONT-FAMILY: ECRYPK-HelveticaNeue-Bold1;
+	color: rgb(68,63,62);
+}
+
+.s10_1{
+	FONT-SIZE: 62px;
+	FONT-FAMILY: ECRYPK-HelveticaNeue-Bold1;
+	color: rgb(221,218,215);
+}
+
+.s8_1{
+	FONT-SIZE: 62px;
+	FONT-FAMILY: ECRYPK-HelveticaNeue-Bold1;
+	color: rgb(68,63,62);
+}
+
+.s3_1{
+	FONT-SIZE: 84px;
+	FONT-FAMILY: BVDGZQ-HelveticaNeue-Light1;
+	color: rgb(124,119,117);
+}
+
+</style>
+<!-- End inline CSS -->
+
+<!-- Begin embedded font definitions -->
+<style type="text/css" >
+
+@font-face {
+	font-family: ECRYPK-HelveticaNeue-Bold1;
+	src :url("index/fonts/ECRYPK-HelveticaNeue-Bold.woff") format("woff");
+}
+
+@font-face {
+	font-family: YTPOJW-HelveticaNeue1;
+	src :url("index/fonts/YTPOJW-HelveticaNeue.woff") format("woff");
+}
+
+@font-face {
+	font-family: BVDGZQ-HelveticaNeue-Light1;
+	src :url("index/fonts/BVDGZQ-HelveticaNeue-Light.woff") format("woff");
+}
+
+</style>
+<!-- End embedded font definitions -->
+
+<!-- Begin text definitions (Positioned/styled in CSS) -->
+<div id="t1_1" class="t s1_1">ESPINOZA</div>
+<div id="t2_1" class="t s2_1">ALEJANDRO</div>
+<div id="t3_1" class="t s3_1">9708 Stoneybridge Rd., Fort Worth, Texas 76108</div>
+<div id="t4_1" class="t s3_1">682 553 8617 </div>
+<div id="t5_1" class="t s3_1">aespinoza123@gmail.com </div>
+<div id="t6_1" class="t s3_1">aespinozagit.github.io/Portfolio</div>
+<div id="t7_1" class="t s4_1">EMPLOYMENT</div>
+<div id="t8_1" class="t s4_1">EXPERIENCE</div>
+<div id="t9_1" class="t s4_1">EDUCATION</div>
+<div id="ta_1" class="t s4_1">SKILLS</div>
+<div id="tb_1" class="t s4_1">INTERESTS</div>
+<div id="tc_1" class="t s5_1">JUNE 2014 - PRESENT</div>
+<div id="td_1" class="t s5_1">Castleberry ISD</div>
+<div id="te_1" class="t s6_1">Campus Computer Technician. Maintained Technology: Desk-</div>
+<div id="tf_1" class="t s6_1">tops, laptops, iPads, printers, projectors, SMART Boards.</div>
+<div id="tg_1" class="t s5_1">JANUARY 2014 - JUNE 2014</div>
+<div id="th_1" class="t s5_1">MSI LLC</div>
+<div id="ti_1" class="t s6_1">Tier I Technical Support. Maintained technology for all staﬀ </div>
+<div id="tj_1" class="t s6_1">members: Desktops, printers and peripherals.</div>
+<div id="tk_1" class="t s5_1">SEPTEMBER 2005 - JUNE 2011</div>
+<div id="tl_1" class="t s5_1">Automotive Technician</div>
+<div id="tm_1" class="t s6_1">Automotive Technician. Maintained Toyota Vehicles: Diagnose, </div>
+<div id="tn_1" class="t s6_1">repair and perform regular maintenance on Toyota vehicles. </div>
+<div id="to_1" class="t s7_1">2009</div>
+<div id="tp_1" class="t s7_1">Blue Duck Recruit</div>
+<div id="tq_1" class="t s8_1">www.blueduckrecruit.com</div>
+<div id="tr_1" class="t s6_1">identity, business card design, UX and webdesign</div>
+<div id="ts_1" class="t s7_1">2008</div>
+<div id="tt_1" class="t s7_1">Evil Dog</div>
+<div id="tu_1" class="t s8_1">www.evildog.com</div>
+<div id="tv_1" class="t s6_1">identity, business card design, webdesign, HTML &amp; CSS</div>
+<div id="tw_1" class="t s7_1">2008</div>
+<div id="tx_1" class="t s7_1">Scarlet Cat Studios</div>
+<div id="ty_1" class="t s8_1">www.scarletcatstudios.com</div>
+<div id="tz_1" class="t s6_1">identity, business card design, webdesign</div>
+<div id="t10_1" class="t s7_1">2008</div>
+<div id="t11_1" class="t s7_1">Friendly Parrot Inc</div>
+<div id="t12_1" class="t s8_1">www.friendlyparrot.com</div>
+<div id="t13_1" class="t s6_1">identity, webdesign, HTML &amp; CSS</div>
+<div id="t14_1" class="t s9_1">2015 - Present</div>
+<div id="t15_1" class="t s8_1">Front End Web Development | AngulaJS</div>
+<div id="t16_1" class="t s6_1">Thinkful BOOTCAMP</div>
+<div id="t17_1" class="t s9_1">2014-Present</div>
+<div id="t18_1" class="t s8_1">Internet and Web Services</div>
+<div id="t19_1" class="t s6_1">Tarrant County College</div>
+<div id="t1a_1" class="t s10_1">SOFTWARE</div>
+<div id="t1b_1" class="t s6_1">Sublime, Notepad++, Visual Sudio 2013</div>
+<div id="t1c_1" class="t s6_1">Photoshop, Illustrator</div>
+<div id="t1d_1" class="t s10_1">LANGUAGES</div>
+<div id="t1e_1" class="t s6_1">HTML5 &amp; CSS3, JavaScript, AngularJS, jQuery, Ajax, JSON, C++, </div>
+<div id="t1f_1" class="t s6_1">JAVA</div>
+<div id="t1g_1" class="t s6_1">Integration of styling into ruby on rails, ﬂex 3 and PHP.</div>
+<div id="t1h_1" class="t s6_1">============================================</div>
+<div id="t1i_1" class="t s6_1">====</div>
+
+<!-- End text definitions -->
+
+<!-- Begin page background -->
+<div id="pg1Overlay" style="width:100%; height:100%; position:absolute; z-index:1; background-color:rgba(0,0,0,0); -webkit-user-select: none;"></div>
+<div id="pg1"><object width="909" height="1286" data="index/1.svg" type="image/svg+xml" id="pdf1" style="width:909px; height:1286px; background-color:white; -moz-transform:scale(1); z-index: 0;"></object></div>
+<!-- End page background -->
+
+<!-- Begin page loading JS -->
+<script type="text/javascript">
+var isIE = false;
+var f1 = [['t3_1',1664],['t4_1',458],['tc_1',546],['td_1',391],['te_1',1565],['tf_1',1404],['tg_1',700],['th_1',199],['ti_1',1494],['tj_1',1157],['tk_1',759],['tl_1',588],['tm_1',1586],['tn_1',1522],['tp_1',451],['tr_1',1261],['tt_1',211],['tv_1',1396],['tx_1',476],['tz_1',1061],['t11_1',463],['t13_1',840],['t14_1',363],['t15_1',1019],['t16_1',524],['t18_1',667],['t19_1',587],['t1b_1',1007],['t1c_1',551],['t1e_1',1580],['t1g_1',1370]];
+function load1(){
+	var timeout = 100;
+	if (navigator.userAgent.match(/iPhone|iPad|iPod|Android/i)) timeout = 500;
+	setTimeout(function() {adjustWordSpacing(f1);},timeout);
+}
+</script>
+<!--[if lt IE 9]><script type="text/javascript">
+isIE = true;
+
+var divCount = 55;
+for (var i = 1; i < divCount; i++) {
+	var div = document.getElementById("t" + i.toString(36) + "_1");
+	div.style.top = (div.offsetTop * 4) + "px";
+	div.style.left = (div.offsetLeft * 4) + "px";
+	div.style.zoom = "25%";}
+</script><![endif]-->
+<!-- End page loading JS -->
+
+</div>
+
+</div>
+</div>
+</div>
+<script type="text/javascript">
+	if (extLoaded) { idrLoad(); } else { intLoaded = true; }
+</script>
+</body>
+</html>

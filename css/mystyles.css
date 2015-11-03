@@ -1,0 +1,214 @@
+/*Universal styles*/
+html {
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+/*Navigation Bar styles*/
+.navbar-collapse li {
+	font-size: 1.5rem;
+}
+
+.navbar-header a {
+	font-size: 2.5rem;
+}
+
+/*Carousel Styles*/
+.courier {
+	font-family: 'Press Start 2P', cursive;
+	font-size: 2.2em;
+	font-weight: bold;
+}
+
+.br-bottom-ln {
+  border-bottom: 2px solid black;
+  height: 50%;
+}
+ 
+ /*index.html carousel styles*/
+.name-style { 
+  margin-bottom: .25em;
+  font-family: 'Lobster', cursive;
+  font-size: 8em;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  text-shadow: .05em .05em .02em rgb(169, 0, 0);
+}
+
+.heading-style {
+  font-size: 4em;
+  font-weight: bold;
+}
+
+.para-style {
+  font-size: 1.5em;
+  font-weight: 300;
+}
+
+.dark-font {
+  color: black;
+}
+
+/*portfolio.html thumbnail styles*/
+.item .btn {
+  background-color: gray;
+  border: 1px solid white;
+  }
+
+.row .btn {
+  background-color: gray;
+  border: 1px solid white;
+}
+
+/* Adds styles to the body sections*/
+section > h1 {
+  margin-top: 1em;
+  font-weight: 700;
+}
+
+section p {
+  font-size: 1.5em;
+}
+
+.question-section > h2 {
+  font-size: 1.75em;
+  font-weight: bolder;
+  color: #d90000;
+  margin: 2em 0 1em 0;
+}
+
+.cowboys {
+  color: #00008b;
+  font-size: 1.25em;
+}
+
+ /*resume.html styles*/
+.jumbotron {
+  margin: 2rem 2rem;
+}
+
+.jumbotron h1, .jumbotron p {
+  text-align: center;
+}
+
+
+
+.row hr {
+	padding:0;
+	margin:0;
+	border: none;
+    height: 1px;
+    /* Set the hr color */
+    color: #333; /* old IE */
+    background-color: #333; /* Modern Browsers */
+}
+
+
+/*Styles to index.html body section*/
+.intro-section,
+.location-section,
+.question-section 
+ {
+  max-width: 70em;
+  margin: 2em auto 0 auto;
+  padding: .05em 0;
+}
+
+/*styles to body section links*/
+.location-section  a, .question-section a
+{
+  text-decoration: none;
+  font-size: 1.10em;
+  color: #d90000;
+}
+
+.location-section  a:hover, .question-section a:hover {
+  color: transparent;
+  text-shadow: 0 0 2px rgba(217, 0, 0, 0.75);
+  font-weight: 1.5em;
+}
+
+/*Footer styles*/
+.social {
+  background-color: #fff;
+  overflow: auto;
+  padding: 9rem 0 10rem;
+  text-align: center;
+}
+
+.social hr {
+  border-top: 1px solid #eaebec;
+  width: 50%;
+}
+
+.social .icons > li {
+  border-radius: 4rem;
+  width: 7rem;
+  height: 7rem;
+  display: inline-block;
+  margin: 1.3rem 6px;
+  border: 4.25px solid #eaebec;
+  padding: 4px;
+  text-align: center;
+  font-size: 2em;
+}
+
+/*styles to footer links*/
+.social a {
+  text-decoration: none;
+  font-size: 1.35em;
+  color: black;
+}
+
+.content-footer a:hover {
+  color: transparent;
+  text-shadow: 0 0 2px rgb(255, 255, 255);
+  font-weight: 1.5em;
+}
+
+.social .icons > li:hover {
+  cursor: pointer;
+}
+
+.social .github a {
+	color: #dc8656;	
+}
+
+.social .linkedin a{
+  color: #0077b5;
+}
+
+.social .codepen a{
+  color: darkgray;
+}
+
+.social .copy {
+  color: #838994;
+  font-size: 1rem;
+}
+
+.social a:hover {
+	color: transparent;
+  text-shadow: 0 0 2px rgba(0, 0, 0, 0.75);
+  font-weight: 1.5em;
+}
+
+/*Responsive design*/ 
+@media only screen and (max-width: 1000px) {
+	.intro-section {
+		padding: 0 5rem;
+	}
+	.location-section {
+		padding: 0 5rem;
+	}
+	.question-section {
+		padding: 0 5rem;
+	}	
+	.navbar-header a {
+				font-size: 2rem;
+			}
+
+}
+
